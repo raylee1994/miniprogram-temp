@@ -115,16 +115,16 @@ Page({
       var disX = e.touches[0].clientX - this.data.startX;
       var disY = e.touches[0].clientY - this.data.startY;
       var curLeft =
-        this.data.startLeft + disX <= 0
+        this.data.startLeft + disX < 0
           ? 0
-          : this.data.startLeft + disX >= this.data.winWidth
-          ? this.data.winWidth
+          : this.data.startLeft + disX > this.data.winWidth - this.data.thresholdWidth
+          ? this.data.winWidth - this.data.thresholdWidth
           : this.data.startLeft + disX;
       var curTop =
-        this.data.startTop + disY <= 0
+        this.data.startTop + disY < 0
           ? 0
-          : this.data.startTop + disY >= this.data.winHeight
-          ? this.data.winHeight
+          : this.data.startTop + disY > this.data.winHeight - this.data.thresholdHeight
+          ? this.data.winHeight - this.data.thresholdHeight
           : this.data.startTop + disY;
       this.setData({
         moveLeft: curLeft,
@@ -137,7 +137,7 @@ Page({
         curTop / (this.data.thresholdHeight + this.data.thresholdTop)
       ) * this.data.column;
       var beginIndex = this.data.beginIndex;
-      var endIndex = stepX + stepY;
+      var endIndex = stepX + stepY >= this.data.datalist.length - 1 ? this.data.datalist.length - 1 : stepX + stepY
       let datalist = this.data.datalist
       if (beginIndex < endIndex) {
         //向后移动

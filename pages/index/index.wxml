@@ -2,3 +2,4 @@
   <view class="item" wx:for="{{datalist}}" wx:key="item.index" bind:longpress="longpress" bind:touchmove="touchmove" bind:touchend="touchend" data-index="{{item.index}}" style="background: {{item.bg}}; opacity: {{hiddenIndex == item.index ? 0 : 1}};">{{item.text}}</view>
   <view class="movable_item" hidden="{{!selectItem}}" style="background: {{selectItem.bg}}; left: {{moveLeft}}px;  top: {{moveTop}}px;">{{selectItem.text}}</view>
 </view>
+<view class="delete">delete</view>
