@@ -1,0 +1,18 @@
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.item{
+  flex: 0 0 30%;
+  width: 30%;
+  height: 150rpx;
+  align-items: center;
+  margin: 2.5% 0 0 2.5%;
+}
+.movable_item{
+  position: absolute;
+  width: 30%;
+  height: 150rpx;
+  align-items: center;
+}
